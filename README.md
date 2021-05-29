@@ -7,3 +7,9 @@
 [Step 00 Start Side Project](https://mapadubak.tistory.com/109)<br>
 [Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)<br>
 [Step 02 Object Detection test](https://mapadubak.tistory.com/113)<br>
+<br>
+[Study 01 Search Engine](https://mapadubak.tistory.com/116)<br>
+
+### Contributors
+[devnjw](https://github.com/devnjw): PM, Software Engineer
+[dhleekr](https://github.com/dhleekr): ML Engineer
