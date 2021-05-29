@@ -11,5 +11,5 @@
 [Study 01 Search Engine](https://mapadubak.tistory.com/116)<br>
 
 ### Contributors
-[devnjw](https://github.com/devnjw): PM, Software Engineer
+[devnjw](https://github.com/devnjw): PM, Software Engineer<br>
 [dhleekr](https://github.com/dhleekr): ML Engineer
