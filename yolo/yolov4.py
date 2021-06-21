@@ -23,12 +23,12 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Loading image
-img = cv2.imread("fruits.jpeg")
-img = cv2.resize(img, None, fx=0.8, fy=0.8)
+img = cv2.imread("foods.png")
+img = cv2.resize(img, None, fx=0.4, fy=0.4)
 height, width, channels = img.shape
 
 # Detecting objects
-blob = cv2.dnn.blobFromImage(img, 0.00392, (1440, 1440), (0, 0, 0), True, crop=False)
+blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 net.setInput(blob)
 outs = net.forward(output_layers)
 
@@ -54,7 +54,7 @@ for out in outs:
             confidences.append(float(confidence))
             class_ids.append(class_id)
 
-indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.6, 0.6)
+indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
 
 font = cv2.FONT_HERSHEY_PLAIN
 for i in range(len(boxes)):
