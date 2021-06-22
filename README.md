@@ -5,15 +5,15 @@
 서비스 링크: www.shoogle.ml<br>
 
 2021.06.21 ~ 개발 시작
-[Step 01 Implementation Plan](https://mapadubak.tistory.com/117)
+* [Step 01 Implementation Plan](https://mapadubak.tistory.com/117)
 
 2021.04 아이디어 구상
 
-[Pre Step 00 Start Side Project](https://mapadubak.tistory.com/109)<br>
-[Pre Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)<br>
-[Pre Step 02 Object Detection test](https://mapadubak.tistory.com/113)<br>
+* [Pre Step 00 Start Side Project](https://mapadubak.tistory.com/109)
+* [Pre Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)
+* [Pre Step 02 Object Detection test](https://mapadubak.tistory.com/113)
 <br>
-[Study 01 Search Engine](https://mapadubak.tistory.com/116)<br>
+* [Study 01 Search Engine](https://mapadubak.tistory.com/116)<br>
 
 ### Contributors
 [devnjw](https://github.com/devnjw): PM, Software Engineer<br>
