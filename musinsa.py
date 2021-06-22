@@ -15,23 +15,35 @@ pageUrl = PageUrl(FindingItemName, 1)
 driver.get(pageUrl)
 
 totalPageNum = driver.find_element_by_css_selector(".totalPagingNum").text
-items = driver.find_elements_by_css_selector(".lazyload.lazy")
 print("Total Page of ", FindingItemName, " : ", str(totalPageNum))
 
-cnt = 1
 for i in range(int(totalPageNum)):
     pageUrl = PageUrl(FindingItemName, i+1)
     driver.get(pageUrl)
     time.sleep(2)
-    items = driver.find_elements_by_css_selector(".lazyload.lazy")
-    print("Finding: ", FindingItemName, " - Page ", i+1, "/",totalPageNum, " start - ", len(items), " items exist")
+    item_infos = driver.find_elements_by_css_selector(".img-block")
+    item_images = driver.find_elements_by_css_selector(".lazyload.lazy")
 
-    for item in items:
+    print("Finding: ", FindingItemName, " - Page ", i+1, "/",totalPageNum, " start - ", len(item_infos), " items exist")
+
+    for i in range(len(item_infos)):
         try:
             time.sleep(0.5)
-            imgUrl = item.get_attribute("data-original")
-            urllib.request.urlretrieve(imgUrl, "images/musinsa/m" + str(cnt) + ".jpg")
-            cnt += 1
+            
+            title = item_infos[i].get_attribute("title")
+            price = item_infos[i].get_attribute("data-bh-content-meta3")
+            item_url = item_infos[i].get_attribute("href")
+            img_url = item_images[i].get_attribute("data-original")
+
+            print("Title: ", title)
+            print("Price: ", price)
+            print("Image URL: ", item_url)
+            print("Image URL: ", img_url)
+            print()
+
+            # Save Image
+            # urllib.request.urlretrieve(img_url, "images/musinsa/m" + str(i+1) + ".jpg")
+
         except Exception as e:
             print(e)
             pass
