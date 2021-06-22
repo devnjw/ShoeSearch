@@ -12,8 +12,9 @@
 * [Pre Step 00 Start Side Project](https://mapadubak.tistory.com/109)
 * [Pre Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)
 * [Pre Step 02 Object Detection test](https://mapadubak.tistory.com/113)
-<br>
-* [Study 01 Search Engine](https://mapadubak.tistory.com/116)<br>
+
+공부
+* [Study 01 Search Engine](https://mapadubak.tistory.com/116)
 
 ### Contributors
 [devnjw](https://github.com/devnjw): PM, Software Engineer<br>
