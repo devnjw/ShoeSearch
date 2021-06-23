@@ -15,6 +15,7 @@ class ItemList(Resource):
 
         resp = make_response(jsonify({'data':output}))
         resp.headers["Access-Control-Allow-Origin"] = "*"
+        
         return resp
         
         # return jsonify({'data':output})
