@@ -7,9 +7,9 @@
 </head>
 <body>
 
-  <form action="https://www.google.com/search" method="GET">
+  <form action="/result" method="GET">
     <div id="search-bar" class="mx-auto mt-5 search-bar input-group mb-3">
-      <input name="q" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <input name="search" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
       <div class="input-group-append">
       </div>
     </div>
@@ -18,15 +18,15 @@
   <!-- Gallery -->
   <div id="gallery" style="margin:0 auto; width: auto;">
     <script type="text/javascript">
-      var result = '';
+      var search = window.location.search.substring(1);
+      var apiUrl = 'http://0.0.0.0:5050/items?' + search;
 
-      var apiUrl = 'http://3.34.50.182:5050/items';
       fetch(apiUrl).then(response => {
         return response.json();
       }).then(data => {
-        // Work with JSON data here
+        var result = '';
         items = data['data'];
-
+        
         for(var i = 0; i<items.length; ++i){
           result += '<a href="' + items[i].item_url + '"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
         }
@@ -35,7 +35,7 @@
         gallery.innerHTML = result;
 
       }).catch(err => {
-        // Do something for an error here
+
       });
     </script>
   </div>
