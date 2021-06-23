@@ -19,7 +19,8 @@
   <div id="gallery" style="margin:0 auto; width: auto;">
     <script type="text/javascript">
       var search = window.location.search.substring(1);
-      var apiUrl = 'http://0.0.0.0:5050/items?' + search;
+      var apiUrl = 'http://3.34.50.182:5050/items';
+      // var apiUrl = 'http://0.0.0.0:5050/items?' + search;
 
       fetch(apiUrl).then(response => {
         return response.json();
