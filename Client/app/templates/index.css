@@ -47,3 +47,8 @@ h1 span:nth-child(7) {
 .thumbnail {
     margin: 20px;
 }
+
+#gallery {
+    margin: 0 auto;
+    width: 1200px;
+}

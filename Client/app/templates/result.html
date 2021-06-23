@@ -16,55 +16,30 @@
   </form>
 
   <!-- Gallery -->
-<div id="gallery" class="row">
+  <div id="gallery" style="margin:0 auto; width: auto;">
+    <script type="text/javascript">
+      var result = '';
 
-  <script type="text/javascript">
-    var result = '';
+      var apiUrl = 'http://192.168.0.5:5000/items';
+      fetch(apiUrl).then(response => {
+        return response.json();
+      }).then(data => {
+        // Work with JSON data here
+        items = data['data'];
 
-    var apiUrl = 'http://192.168.0.5:5000/items';
-    fetch(apiUrl).then(response => {
-      return response.json();
-    }).then(data => {
-      // Work with JSON data here
-      console.log(data);
-      items = data['data'];
+        for(var i = 0; i<items.length; ++i){
+          result += '<a href="' + items[i].item_url + '"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
+        }
 
-      for(var i = 0; i<items.length; ++i){
-        console.log(items[i]);
-        result += '<a href="' + items[i].item_url + '"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
-      }
+        var gallery = document.getElementById("gallery");
+        gallery.innerHTML = result;
 
-      var gallery = document.getElementById("gallery");
-      gallery.innerHTML = result;
-
-    }).catch(err => {
-      // Do something for an error here
-    });
-
-
-  </script>
-
-  <!-- <script>
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        //document.getElementById("print").innerHTML = this.responseText;
-      var response = JSON.parse(this.responseText);
-      console.log("Response:" + response.responseText)
-      document.getElementById("print").innerHTML = response.ip;
-      }
-    };
-    xhttp.open("GET", "http://192.168.0.5:5000/items");
-    xhttp.setRequestHeader("X-Custom-Header", "testvalue");
-    xhttp.send();
-    //xhttp.open("POST", "http://ipinfo.io/json", false);
-    //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //xhttp.send("fname=Henry&lname=Ford");
-    
-    </script> -->
-</div>
-<!-- Gallery -->
+      }).catch(err => {
+        // Do something for an error here
+      });
+    </script>
+  </div>
+  <!-- Gallery -->
 
 </body>
 </html>
