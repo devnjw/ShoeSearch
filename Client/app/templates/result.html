@@ -21,7 +21,7 @@
 
       // HTML Form-data 받아오기 - 검색 키워드
       var search = window.location.search.substring(1);
-      var apiUrl = 'http://3.34.50.182:5050/items';
+      var apiUrl = 'http://3.34.50.182:5050/items?' + search;
       // var apiUrl = 'http://0.0.0.0:5050/items?' + search;
 
       fetch(apiUrl).then(response => {
