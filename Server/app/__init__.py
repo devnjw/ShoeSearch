@@ -26,4 +26,7 @@ def create_app():
     from .item_controller import ItemList
     api.add_resource(ItemList, '/items')
 
+    from .image_controller import ImageUpload
+    api.add_resource(ImageUpload, '/image')
+
     return app

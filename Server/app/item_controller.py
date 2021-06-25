@@ -8,6 +8,8 @@ from .serializer import items_schema
 class ItemList(Resource):
     def get(self):
         keyword = request.args.get('search')
+        if not keyword:
+            keyword = ""
         keyword = "%" + keyword + "%"
         
         output = Item.query\
