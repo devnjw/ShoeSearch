@@ -7,13 +7,24 @@
 </head>
 <body>
 
-  <form action="/result" method="GET">
-    <div id="search-bar" class="mx-auto mt-5 search-bar input-group mb-3">
-      <input name="search" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <div class="input-group-append">
+  <div>
+  
+    <form action="/result" method="GET">
+      <div id="search-bar" class="mx-auto mt-5 search-bar input-group">
+        <input name="search" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+
+    <form action = "http://0.0.0.0:5050/image" method = "POST" enctype = "multipart/form-data">
+      <div id="image-search-bar" class="mx-auto search-bar input-group" style="margin:1rem;">
+        <input type = "file" name = "file" style="width: 450px;"/>
+        <input type = "submit"/>
+      </div>
+    </form>
+
+  </div>
 
   <!-- Gallery -->
   <div id="gallery" style="margin:0 auto; width: auto;">
