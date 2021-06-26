@@ -5,6 +5,8 @@
 서비스 링크: www.shoogle.ml<br>
 
 2021.06.21 ~ 개발 시작
+* [Step 03 Implementation Trouble Shooting](https://mapadubak.tistory.com/119)
+* [Step 02 Implementation - Web](https://mapadubak.tistory.com/118)
 * [Step 01 Implementation Plan](https://mapadubak.tistory.com/117)
 
 2021.04 아이디어 구상
