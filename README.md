@@ -9,7 +9,7 @@
 * [Step 02 Implementation - Web](https://mapadubak.tistory.com/118)
 * [Step 01 Implementation Plan](https://mapadubak.tistory.com/117)
 
-2021.04 아이디어 구상
+2021.04.28 아이디어 구상 시작
 
 * [Pre Step 00 Start Side Project](https://mapadubak.tistory.com/109)
 * [Pre Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)
