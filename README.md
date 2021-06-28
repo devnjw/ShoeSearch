@@ -25,8 +25,3 @@
 ### Contributors
 [devnjw](https://github.com/devnjw): PM, Software Engineer, ML Engineer<br>
 [dhleekr](https://github.com/dhleekr): ML Engineer
-
-### Current Web UI
-
-![image](https://user-images.githubusercontent.com/48133047/123505692-897ede00-d69b-11eb-839d-e6565f92f803.png)
-![image](https://user-images.githubusercontent.com/48133047/123505696-8e439200-d69b-11eb-9954-a598238b605a.png)
