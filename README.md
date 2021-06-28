@@ -4,6 +4,10 @@
 
 서비스 링크: www.shoogle.ml<br>
 
+2021.06.25 ~ AI모델 구현 시작
+* [Model 02 VGG16 Feature Extraction](https://mapadubak.tistory.com/121)
+* [Model 01 Autoencoder with VGG16](https://mapadubak.tistory.com/120)
+
 2021.06.21 ~ 개발 시작
 * [Step 03 Implementation Trouble Shooting](https://mapadubak.tistory.com/119)
 * [Step 02 Implementation - Web](https://mapadubak.tistory.com/118)
