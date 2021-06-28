@@ -9,9 +9,9 @@
 * [Model 01 Autoencoder with VGG16](https://mapadubak.tistory.com/120)
 
 2021.06.21 ~ 웹 개발
-* [Step 03 Implementation Trouble Shooting](https://mapadubak.tistory.com/119)
-* [Step 02 Implementation - Web](https://mapadubak.tistory.com/118)
-* [Step 01 Implementation Plan](https://mapadubak.tistory.com/117)
+* [Implementation 03 Trouble Shooting](https://mapadubak.tistory.com/119)
+* [Implementation 02 Client & Server](https://mapadubak.tistory.com/118)
+* [Implementation 01 Plan](https://mapadubak.tistory.com/117)
 
 2021.04.28 아이디어 구상 시작
 
