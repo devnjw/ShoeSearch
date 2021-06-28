@@ -13,7 +13,7 @@
 * [Implementation 02 Client & Server](https://mapadubak.tistory.com/118)
 * [Implementation 01 Plan](https://mapadubak.tistory.com/117)
 
-2021.04.28 아이디어 구상 시작
+아이디어 구상 & 사전 준비
 
 * [Pre Step 00 Start Side Project](https://mapadubak.tistory.com/109)
 * [Pre Step 01 Shoes Image Crawling](https://mapadubak.tistory.com/110)
