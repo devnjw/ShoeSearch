@@ -24,9 +24,10 @@ def create_app():
     api.add_resource(Crawl, '/crawl')
 
     from .item_controller import ItemList
-    api.add_resource(ItemList, '/items')
+    api.add_resource(ItemList, '/search')
 
-    from .image_controller import ImageUpload
-    api.add_resource(ImageUpload, '/image')
+    from .image_controller import ImageUpload, ImageSearch
+    api.add_resource(ImageUpload, '/image/upload')
+    api.add_resource(ImageSearch, '/search/image')
 
     return app

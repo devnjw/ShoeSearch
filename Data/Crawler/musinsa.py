@@ -17,6 +17,8 @@ driver.get(pageUrl)
 totalPageNum = driver.find_element_by_css_selector(".totalPagingNum").text
 print("Total Page of ", FindingItemName, " : ", str(totalPageNum))
 
+cnt = 1
+
 for i in range(int(totalPageNum)):
     pageUrl = PageUrl(FindingItemName, i+1)
     driver.get(pageUrl)
@@ -42,7 +44,8 @@ for i in range(int(totalPageNum)):
             print()
 
             # Save Image
-            # urllib.request.urlretrieve(img_url, "../images/musinsa/m" + str(i+1) + ".jpg")
+            # urllib.request.urlretrieve(img_url, "../images/musinsa/m" + str(cnt) + ".jpg")
+            # cnt += 1
 
         except Exception as e:
             print(e)

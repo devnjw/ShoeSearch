@@ -1,0 +1,35 @@
+<script>
+    var apiUrl = "http://127.0.0.1:5050/image/search";
+
+    postImage = () => { 
+    fetch(apiUrl, {
+        method: "POST",  
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(this.state.queryImage)
+        })
+        .then(res => res.json())
+        .then(data => {
+            var result = '';
+            items = data['data'];
+            
+            for(var i = 0; i<items.length; ++i){
+            result += '<a href="' + items[i].item_url + '"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
+            }
+
+            var gallery = document.getElementById("gallery");
+            gallery.innerHTML = result;
+            }).catch(err => {
+        });      
+        }
+
+    setImagePath = e => {
+        let reader = new FileReader() 
+        reader.readAsDataURL(e.target.files[0])
+        
+        reader.onload = () => {      
+        this.setState({        
+            queryImage: reader.result      
+        },()=> this.postIdentification())    
+        }
+    }
+</script>

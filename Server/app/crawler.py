@@ -26,6 +26,7 @@ class Crawl(Resource):
         items = driver.find_elements_by_css_selector(".lazyload.lazy")
         print("Total Page of ", FindingItemName, " : ", str(totalPageNum))
 
+        cnt = 1
         for i in range(int(totalPageNum)):
             pageUrl = PageUrl(FindingItemName, i+1)
             driver.get(pageUrl)
@@ -37,7 +38,7 @@ class Crawl(Resource):
 
             for i in range(len(item_infos)):
                 try:
-                    time.sleep(0.1)
+                    # time.sleep(0.05)
                     
                     title = item_infos[i].get_attribute("title")
                     brand = item_infos[i].get_attribute("data-bh-content-meta4")
@@ -46,12 +47,12 @@ class Crawl(Resource):
                     img_url = item_images[i].get_attribute("data-original")
                     shop = "musinsa"
 
-                    print("Title: ", title)
-                    print("Brand: ", brand)
-                    print("Price: ", price)
-                    print("Image URL: ", item_url)
-                    print("Image URL: ", img_url)
-                    print()
+                    # print("Title: ", title)
+                    # print("Brand: ", brand)
+                    # print("Price: ", price)
+                    # print("Image URL: ", item_url)
+                    # print("Image URL: ", img_url)
+                    # print()
 
                     new_user = Item(
                         title = title,
@@ -66,7 +67,8 @@ class Crawl(Resource):
                     db.session.commit()
 
                     # Save Image
-                    # urllib.request.urlretrieve(img_url, "images/musinsa/m" + str(i+1) + ".jpg")
+                    urllib.request.urlretrieve(img_url, "images/musinsa/m" + str(cnt) + ".jpg")
+                    cnt += 1
 
                 except Exception as e:
                     print(e)

@@ -1,6 +1,13 @@
 import os, uuid
-from flask import Flask, request, jsonify, redirect, url_for
+from flask import Flask, request, jsonify, redirect, url_for, make_response
 from flask_restful import Resource, abort
+from sqlalchemy.sql.expression import case
+
+from app import db
+from app.models import Item
+from .serializer import items_schema
+
+from .image_service import findSimilarImages
 
 class ImageUpload(Resource):
     def post(self):
@@ -12,5 +19,32 @@ class ImageUpload(Resource):
         os.makedirs(FILEPATH, exist_ok=True)
         file.save(os.path.join(FILEPATH, FILENAME))
 
-        return redirect(url_for('itemlist'))
-        # return jsonify({'result': "Image Uploaded Successfully"})
+        return jsonify({'result': "Image Uploaded Successfully"})
+
+
+class ImageSearch(Resource):
+    def post(self):
+        file = request.files['file']
+
+        similar_image_id_list = findSimilarImages(file)
+
+        # print("IDs: ")
+        # print(similar_image_id_list)
+
+        ordering = case(
+            {id: index for index, id in enumerate(similar_image_id_list)},
+            value=Item.id
+        )
+        
+        output = Item.query\
+            .filter(Item.id.in_(similar_image_id_list))\
+            .order_by(ordering)\
+            .limit(100).all()
+        output = items_schema.dump(output)
+
+        resp = make_response(jsonify({'data':output}))
+
+        # Header for CORS
+        resp.headers["Access-Control-Allow-Origin"] = "*"
+
+        return resp
