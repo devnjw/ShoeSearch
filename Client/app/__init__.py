@@ -6,6 +6,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+   url = 'http://127.0.0.1:5050/home'
+   requests.get(url)
+
    return render_template('index.html')
 
 @app.route('/result')

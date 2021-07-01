@@ -8,6 +8,7 @@ from app.models import Item
 from .serializer import items_schema
 
 from .image_service import findSimilarImages
+from .kpi_service import add_num_image_search
 
 class ImageUpload(Resource):
     def post(self):
@@ -28,8 +29,7 @@ class ImageSearch(Resource):
 
         similar_image_id_list = findSimilarImages(file)
 
-        # print("IDs: ")
-        # print(similar_image_id_list)
+        add_num_image_search()
 
         ordering = case(
             {id: index for index, id in enumerate(similar_image_id_list)},

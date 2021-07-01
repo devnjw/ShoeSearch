@@ -20,6 +20,9 @@ def create_app():
 
     from . import models
 
+    from.home_controller import HomeKPI
+    api.add_resource(HomeKPI, '/home')
+
     from .crawler import Crawl
     api.add_resource(Crawl, '/crawl')
 
