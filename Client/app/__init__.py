@@ -30,8 +30,6 @@ def image_search():
    files = {'file': file}
    res = requests.post(url, files=files).json()
 
-   print(res)
-
    return render_template('result.html', items=res['data'])
 
 if __name__ == "__main__":

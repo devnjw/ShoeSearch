@@ -48,4 +48,8 @@ def findSimilarImages(img):
     # Extract 30 images that have lowest distance
     ids = np.argsort(dists)[:30] # Type: numpy.int64
 
+    ids += 1
+
+    print(ids)
+
     return ids
