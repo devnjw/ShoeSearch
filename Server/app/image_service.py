@@ -45,8 +45,8 @@ def findSimilarImages(img):
     # Calculate the similarity (distance) between images
     dists = np.linalg.norm(features - query, axis=1)
 
-    # Extract 30 images that have lowest distance
-    ids = np.argsort(dists)[:30] # Type: numpy.int64
+    # Extract 100 images that have lowest distance
+    ids = np.argsort(dists)[:100] # Type: numpy.int64
 
     ids += 1
 
