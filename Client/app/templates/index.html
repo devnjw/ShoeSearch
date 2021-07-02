@@ -1,3 +1,11 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      alert("{{messages[-1]}}")
+    </script>
+  {% endif %}
+{% endwith %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +17,7 @@
   <h1>
     <span>S</span><span>h</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
   </h1>
-  <form action="/result" method="GET">
+  <form action="/search" method="GET">
     <div class="mx-auto mt-5 search-bar input-group">
       <input name="keyword" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
       <div class="input-group-append">
