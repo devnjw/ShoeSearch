@@ -5,6 +5,9 @@ from flask_restful import Resource, Api
 
 from .config import BaseConfig
 
+from .machine import FeatureExtractor
+fe = FeatureExtractor()
+
 db = SQLAlchemy()
 migrate = Migrate(compare_type=True)
 
@@ -17,6 +20,8 @@ def create_app():
     # ORM
     db.init_app(app)
     migrate.init_app(app, db)
+
+   
 
     from . import models
 

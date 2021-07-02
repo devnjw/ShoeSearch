@@ -7,26 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-class FeatureExtractor:
-    def __init__(self):
-        # Use VGG-16 as the architecture and ImageNet for the weight
-        base_model = VGG16(weights='imagenet')
-        
-        # Customize the model to return features from fully-connected layer
-        self.model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc1').output)
-
-    def extract(self, img):
-        # Resize the image
-        img = img.resize((224, 224))
-        # Convert the image color space
-        img = img.convert('RGB')
-        # Reformat the image
-        x = image.img_to_array(img)
-        x = np.expand_dims(x, axis=0)
-        x = preprocess_input(x)
-        # Extract Features
-        feature = self.model.predict(x)[0]
-        return feature / np.linalg.norm(feature)
+from app import fe
 
 def init_tensor():
     config = tf.ConfigProto(
@@ -38,13 +19,10 @@ def init_tensor():
 # output: similar image ids
 def findSimilarImages(img):
     img = Image.open(img)
-
-    fe = FeatureExtractor()
-
-    featurePath = os.getcwd() + "/app/mFeatures.npy"
-    features = np.load(featurePath)
-    features = np.array(features)
-    features.shape
+    
+    features = fe.features
+    print("Feature Map Shape: ")
+    print(features.shape)
 
     # Extract its features
     query = fe.extract(img)
@@ -56,6 +34,8 @@ def findSimilarImages(img):
     ids = np.argsort(dists)[:100] # Type: numpy.int64
 
     ids += 1
+    # del(img)
+    # del(query)
 
     print(ids)
 
