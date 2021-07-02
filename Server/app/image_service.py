@@ -34,8 +34,6 @@ def findSimilarImages(img):
     ids = np.argsort(dists)[:100] # Type: numpy.int64
 
     ids += 1
-    del(img)
-    del(query)
 
     print(ids)
 
