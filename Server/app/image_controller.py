@@ -7,7 +7,7 @@ from app import db
 from app.models import Item
 from .serializer import items_schema
 
-from .image_service import findSimilarImages
+from .image_service import findSimilarImages, save_image
 from .kpi_service import add_num_image_search
 
 class ImageUpload(Resource):
@@ -28,6 +28,9 @@ class ImageSearch(Resource):
         file = request.files['file']
 
         similar_image_id_list = findSimilarImages(file)
+        
+        # save image log
+        save_image(file)
 
         add_num_image_search()
 

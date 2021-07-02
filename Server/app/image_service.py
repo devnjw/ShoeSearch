@@ -1,19 +1,9 @@
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
-from tensorflow.keras.models import Model
-import tensorflow as tf
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
+import uuid
 import os
 
 from app import fe
-
-def init_tensor():
-    config = tf.ConfigProto(
-        device_count = {'GPU': 0}
-    )
-    sess = tf.Session(config=config)
 
 # input: image
 # output: similar image ids
@@ -21,8 +11,6 @@ def findSimilarImages(img):
     img = Image.open(img)
     
     features = fe.features
-    print("Feature Map Shape: ")
-    print(features.shape)
 
     # Extract its features
     query = fe.extract(img)
@@ -31,10 +19,15 @@ def findSimilarImages(img):
     dists = np.linalg.norm(features - query, axis=1)
 
     # Extract 100 images that have lowest distance
-    ids = np.argsort(dists)[:100] # Type: numpy.int64
-
-    ids += 1
-
-    print(ids)
+    ids = np.argsort(dists)[:100] + 1 # Type: numpy.int64
 
     return ids
+
+def save_image(img):
+    img = Image.open(img)
+
+    FILENAME = str(uuid.uuid4()) + ".jpg"
+    FILEPATH = os.getcwd() + '/app/static/images/'
+
+    os.makedirs(FILEPATH, exist_ok=True)
+    img.save(os.path.join(FILEPATH, FILENAME))
