@@ -1,6 +1,7 @@
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from tensorflow.keras.models import Model
+import tensorflow as tf
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,6 +27,12 @@ class FeatureExtractor:
         # Extract Features
         feature = self.model.predict(x)[0]
         return feature / np.linalg.norm(feature)
+
+def init_tensor():
+    config = tf.ConfigProto(
+        device_count = {'GPU': 0}
+    )
+    sess = tf.Session(config=config)
 
 # input: image
 # output: similar image ids
