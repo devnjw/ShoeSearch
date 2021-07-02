@@ -32,7 +32,7 @@
     var items = {{ items | tojson | safe }};
     var result = '';
     for(var i = 0; i < items.length; ++i){
-        result += '<a href="' + items[i].item_url + '"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
+        result += '<a href="' + items[i].item_url + '" target="_blank"><img class="thumbnail" src="' + items[i].image_url + '" loading="lazy"/> </a>';
     }   
     var gallery = document.getElementById("gallery");
     gallery.innerHTML = result;
