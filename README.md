@@ -31,4 +31,4 @@
 
 
 ## System Flow
-![image](https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png)
+<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png"></p>
