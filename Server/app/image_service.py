@@ -5,6 +5,8 @@ import os
 
 from app import fe
 
+from .kpi_service import add_search_image_log
+
 # input: image
 # output: similar image ids
 def findSimilarImages(img):
@@ -31,3 +33,5 @@ def save_image(img):
 
     os.makedirs(FILEPATH, exist_ok=True)
     img.save(os.path.join(FILEPATH, FILENAME))
+
+    add_search_image_log(FILEPATH + FILENAME)
