@@ -2,7 +2,7 @@ from flask import render_template, jsonify, make_response, request
 from flask_restful import Resource, abort
 
 from app import db
-from app.models import KPI, SearchKeywords
+from app.models import KPI, SearchKeywords, SearchImages
 
 from datetime import datetime, timedelta
 
@@ -78,5 +78,19 @@ def add_search_keyword_log(keyword):
         else:
             seach_log.cnt += 1
             db.session.commit()
+    except Exception as e:
+        print(e)
+
+def add_search_image_log(image_path):
+    # example of image path url
+    # http://3.34.50.182:5050/static/images/0f04780a-e12d-4e35-a822-ac92e933d8a3.jpg
+    try:
+        today = datetime.today().strftime('%Y-%m-%d')
+        seach_log = SearchImages(
+            date = today,
+            url = image_path
+        )
+        db.session.add(seach_log)
+        db.session.commit()
     except Exception as e:
         print(e)
