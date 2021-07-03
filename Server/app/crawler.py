@@ -38,21 +38,12 @@ class Crawl(Resource):
 
             for i in range(len(item_infos)):
                 try:
-                    # time.sleep(0.05)
-                    
                     title = item_infos[i].get_attribute("title")
                     brand = item_infos[i].get_attribute("data-bh-content-meta4")
                     price = item_infos[i].get_attribute("data-bh-content-meta3")
                     item_url = item_infos[i].get_attribute("href")
                     img_url = item_images[i].get_attribute("data-original")
                     shop = "musinsa"
-
-                    # print("Title: ", title)
-                    # print("Brand: ", brand)
-                    # print("Price: ", price)
-                    # print("Image URL: ", item_url)
-                    # print("Image URL: ", img_url)
-                    # print()
 
                     new_user = Item(
                         title = title,
