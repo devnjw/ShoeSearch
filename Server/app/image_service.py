@@ -34,4 +34,4 @@ def save_image(img):
     os.makedirs(FILEPATH, exist_ok=True)
     img.save(os.path.join(FILEPATH, FILENAME))
 
-    add_search_image_log(FILEPATH + FILENAME)
+    add_search_image_log('/static/images/' + FILENAME)
