@@ -1,5 +1,5 @@
-from flask import render_template, jsonify, make_response, request
-from flask_restful import Resource, abort
+from flask import jsonify, make_response
+from flask_restful import Resource
 
 from .kpi_service import add_num_visit_home
 

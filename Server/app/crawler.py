@@ -1,12 +1,10 @@
-from flask import render_template, jsonify
-from flask_restful import Resource, abort
+from flask_restful import Resource
 
 from app import db
 from app.models import Item
 
 import os, time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import urllib.request
 
 def PageUrl(itemName, pageNum):
@@ -23,7 +21,6 @@ class Crawl(Resource):
         driver.get(pageUrl)
 
         totalPageNum = driver.find_element_by_css_selector(".totalPagingNum").text
-        items = driver.find_elements_by_css_selector(".lazyload.lazy")
         print("Total Page of ", FindingItemName, " : ", str(totalPageNum))
 
         cnt = 1
@@ -36,13 +33,13 @@ class Crawl(Resource):
 
             print("Finding: ", FindingItemName, " - Page ", i+1, "/",totalPageNum, " start - ", len(item_infos), " items exist")
 
-            for i in range(len(item_infos)):
+            for j in range(len(item_infos)):
                 try:
-                    title = item_infos[i].get_attribute("title")
-                    brand = item_infos[i].get_attribute("data-bh-content-meta4")
-                    price = item_infos[i].get_attribute("data-bh-content-meta3")
-                    item_url = item_infos[i].get_attribute("href")
-                    img_url = item_images[i].get_attribute("data-original")
+                    title = item_infos[j].get_attribute("title")
+                    brand = item_infos[j].get_attribute("data-bh-content-meta4")
+                    price = item_infos[j].get_attribute("data-bh-content-meta3")
+                    item_url = item_infos[j].get_attribute("href")
+                    img_url = item_images[j].get_attribute("data-original")
                     shop = "musinsa"
 
                     new_user = Item(
