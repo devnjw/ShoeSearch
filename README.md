@@ -4,6 +4,9 @@
 
 서비스 링크: www.shoogle.ml<br>
 
+2021.06.29 ~ 배포
+* [Release 01 AI Model Distribution](https://mapadubak.tistory.com/123)
+
 2021.06.25 ~ AI 모델 구현
 * [Model 02 VGG16 Feature Extraction](https://mapadubak.tistory.com/121)
 * [Model 01 Autoencoder with VGG16](https://mapadubak.tistory.com/120)
@@ -25,3 +28,7 @@
 ### Contributors
 [devnjw](https://github.com/devnjw): PM, Software Engineer, ML Engineer<br>
 [dhleekr](https://github.com/dhleekr): ML Engineer
+
+
+## System Flow
+<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png"></p>
