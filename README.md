@@ -28,3 +28,7 @@
 ### Contributors
 [devnjw](https://github.com/devnjw): PM, Software Engineer, ML Engineer<br>
 [dhleekr](https://github.com/dhleekr): ML Engineer
+
+
+## System Flow
+![image](https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png)
