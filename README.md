@@ -13,7 +13,8 @@
 
 <details>
 <summary>
-  ### Shoogle V0.1 베타 준비 과정</summary>
+  <h3>Shoogle V0.1 베타 준비 과정</h3>
+</summary>
 <div markdown="1">       
 
 2021.06.29 ~ 07.03
