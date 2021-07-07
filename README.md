@@ -4,14 +4,23 @@
 
 서비스 링크: www.shoogle.ml<br>
 
-2021.06.29 ~ 배포
+<details>
+<summary>여기를 눌러주세요</summary>
+<div markdown="1">       
+
+😎숨겨진 내용😎
+
+</div>
+</details>
+
+2021.06.29 ~ 07.03
 * [Release 01 AI Model Distribution](https://mapadubak.tistory.com/123)
 
-2021.06.25 ~ AI 모델 구현
+2021.06.25 ~ 06.28 모델 구현
 * [Model 02 VGG16 Feature Extraction](https://mapadubak.tistory.com/121)
 * [Model 01 Autoencoder with VGG16](https://mapadubak.tistory.com/120)
 
-2021.06.21 ~ 웹 개발
+2021.06.21 ~ 06.24 웹 개발
 * [Implementation 03 Trouble Shooting](https://mapadubak.tistory.com/119)
 * [Implementation 02 Client & Server](https://mapadubak.tistory.com/118)
 * [Implementation 01 Plan](https://mapadubak.tistory.com/117)
