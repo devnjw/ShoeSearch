@@ -4,8 +4,15 @@
 
 서비스 링크: www.shoogle.ml<br>
 
+### Shooble V1.0 첫 배포 준비 과정
+2021.07.07 검색 알고리즘 개선
+* [Search Engine 01]()
+
+2021.07.08 ~ 웹 UI 개선
+* [Web UIUX 01]()
+
 <details>
-<summary>Shoogle V0.1 첫 배포 과정</summary>
+<summary>Shoogle V0.1 베타 준비 과정</summary>
 <div markdown="1">       
 
 2021.06.29 ~ 07.03
