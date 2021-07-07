@@ -12,7 +12,8 @@
 * [Web UIUX 01]()
 
 <details>
-<h3 summary>Shoogle V0.1 베타 준비 과정</summary>
+<summary>
+  ### Shoogle V0.1 베타 준비 과정</summary>
 <div markdown="1">       
 
 2021.06.29 ~ 07.03
