@@ -4,14 +4,28 @@
 
 서비스 링크: www.shoogle.ml<br>
 
-2021.06.29 ~ 배포
+### Shoogle V1.0 첫 배포 준비 과정
+2021.07.07 검색 알고리즘 개선
+* [Search Engine 01]()
+
+2021.07.08 ~ 웹 UI 개선
+* [Web UIUX 01]()
+
+### Shoogle 베타 준비 과정
+<details>
+<summary>
+  지난 과정 펼쳐보기
+</summary>
+<div markdown="1">       
+
+2021.06.29 ~ 07.03
 * [Release 01 AI Model Distribution](https://mapadubak.tistory.com/123)
 
-2021.06.25 ~ AI 모델 구현
+2021.06.25 ~ 06.28 모델 구현
 * [Model 02 VGG16 Feature Extraction](https://mapadubak.tistory.com/121)
 * [Model 01 Autoencoder with VGG16](https://mapadubak.tistory.com/120)
 
-2021.06.21 ~ 웹 개발
+2021.06.21 ~ 06.24 웹 개발
 * [Implementation 03 Trouble Shooting](https://mapadubak.tistory.com/119)
 * [Implementation 02 Client & Server](https://mapadubak.tistory.com/118)
 * [Implementation 01 Plan](https://mapadubak.tistory.com/117)
@@ -25,8 +39,12 @@
 공부
 * [Study 01 Search Engine](https://mapadubak.tistory.com/116)
 
+</div>
+</details>
+
+
 ### Contributors
-[devnjw](https://github.com/devnjw): PM, Software Engineer, ML Engineer<br>
+[devnjw](https://github.com/devnjw): Software Engineer, ML Engineer<br>
 [dhleekr](https://github.com/dhleekr): ML Engineer
 
 
