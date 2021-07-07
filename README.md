@@ -5,13 +5,8 @@
 서비스 링크: www.shoogle.ml<br>
 
 <details>
-<summary>여기를 눌러주세요</summary>
+<summary>Shoogle V0.1 첫 배포 과정</summary>
 <div markdown="1">       
-
-😎숨겨진 내용😎
-
-</div>
-</details>
 
 2021.06.29 ~ 07.03
 * [Release 01 AI Model Distribution](https://mapadubak.tistory.com/123)
@@ -33,6 +28,10 @@
 
 공부
 * [Study 01 Search Engine](https://mapadubak.tistory.com/116)
+
+</div>
+</details>
+
 
 ### Contributors
 [devnjw](https://github.com/devnjw): Software Engineer, ML Engineer<br>
