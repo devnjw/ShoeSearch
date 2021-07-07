@@ -10,6 +10,12 @@ class Item(db.Model):
     price = db.Column(db.String(45))
     brand = db.Column(db.String(45))
 
+class Brand(db.Model):
+    __tablename__ = "brand"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    eng_name = db.Column(db.String(45))
+    subs = db.Column(db.String(255))
+
 class KPI(db.Model):
     __tablename__ = "KPI"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

@@ -1,7 +1,7 @@
 from flask_restful import Resource
 
 from app import db
-from app.models import Item
+from app.models import Item, Brand
 
 import os, time
 from selenium import webdriver
@@ -57,6 +57,49 @@ class Crawl(Resource):
                     # Save Image
                     urllib.request.urlretrieve(img_url, "images/musinsa/m" + str(cnt) + ".jpg")
                     cnt += 1
+
+                except Exception as e:
+                    print(e)
+                    pass
+
+        driver.close()
+
+
+class MusinsaBrandCrawler(Resource):
+    def get(self):
+        driver = webdriver.Chrome(os.getcwd() + "/chromedriver")
+        driver.get("https://store.musinsa.com/app/contents/brandshop")
+
+        time.sleep(2)
+
+        brand_list = driver.find_elements_by_tag_name("dl")
+        
+
+        for brand in brand_list:
+            eng_name = brand.text.split(' SALE')[0]
+            #subs = brand.text.splitlines()[1] #.split(' (')[0]
+
+            if len(brand.text.splitlines()) == 2:
+                eng_name = brand.text.splitlines()[0]
+                subs = brand.text.splitlines()[1]
+
+                if eng_name.find(' SALE') > -1:
+                    eng_name = eng_name[0:eng_name.find(' SALE')]
+                if eng_name.find(' 단독') > -1:
+                    eng_name = eng_name[0:eng_name.find(' 단독')]
+                if subs.find(' (') > -1:
+                    subs = subs[0:subs.find(' (')]
+
+                # print(eng_name, eng_name.lower(), subs)
+
+                try:
+                    new_brand = Brand(
+                        eng_name = eng_name.lower(),
+                        subs = subs
+                    )
+
+                    db.session.add(new_brand)
+                    db.session.commit()
 
                 except Exception as e:
                     print(e)
