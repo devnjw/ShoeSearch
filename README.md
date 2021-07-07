@@ -11,9 +11,10 @@
 2021.07.08 ~ 웹 UI 개선
 * [Web UIUX 01]()
 
+### Shoogle 베타 준비 과정
 <details>
 <summary>
-  <h3>Shoogle V0.1 베타 준비 과정</h3>
+  지난 과정 펼쳐보기
 </summary>
 <div markdown="1">       
 
