@@ -32,7 +32,7 @@ def create_app():
     api.add_resource(Crawl, '/crawl')
     api.add_resource(MusinsaBrandCrawler, '/crawl/brand/musinsa')
 
-    from .item_controller import ItemList
+    from .keyword_controller import ItemList
     api.add_resource(ItemList, '/search')
 
     from .image_controller import ImageUpload, ImageSearch
