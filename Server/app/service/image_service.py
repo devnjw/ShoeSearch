@@ -17,8 +17,6 @@ def findSimilarImages(img):
 
     # Extract features of Input Image
     feature = fe.extract(img)
-    with np.printoptions(edgeitems=4000):
-        print(feature)
 
     # Calculate the similarity (distance) between images
     dists = np.linalg.norm(features - feature, axis=1)
