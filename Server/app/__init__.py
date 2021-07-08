@@ -21,22 +21,20 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-   
 
     from . import models
 
-    from.home_controller import HomeKPI
+    from .controller.home_controller import HomeKPI
     api.add_resource(HomeKPI, '/home')
 
-    from .crawler import Crawl, MusinsaBrandCrawler
-    api.add_resource(Crawl, '/crawl')
+    from .crawler import MusinsaItemCrawler, MusinsaBrandCrawler
+    api.add_resource(MusinsaItemCrawler, '/crawl/item/musinsa')
     api.add_resource(MusinsaBrandCrawler, '/crawl/brand/musinsa')
 
-    from .keyword_controller import ItemList
-    api.add_resource(ItemList, '/search')
+    from .controller.keyword_controller import KeywordSearch
+    api.add_resource(KeywordSearch, '/search')
 
-    from .image_controller import ImageUpload, ImageSearch
-    api.add_resource(ImageUpload, '/image/upload')
+    from .controller.image_controller import ImageSearch
     api.add_resource(ImageSearch, '/search/image')
 
     return app

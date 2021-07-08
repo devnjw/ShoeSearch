@@ -12,13 +12,16 @@ from .kpi_service import add_search_image_log
 def findSimilarImages(img):
     img = Image.open(img)
     
+    # Pre-extracted features of Database Images
     features = fe.features
 
-    # Extract its features
-    query = fe.extract(img)
+    # Extract features of Input Image
+    feature = fe.extract(img)
+    with np.printoptions(edgeitems=4000):
+        print(feature)
 
     # Calculate the similarity (distance) between images
-    dists = np.linalg.norm(features - query, axis=1)
+    dists = np.linalg.norm(features - feature, axis=1)
 
     # Extract 100 images that have lowest distance
     ids = np.argsort(dists)[:100] + 1 # Type: numpy.int64
@@ -34,4 +37,5 @@ def save_image(img):
     os.makedirs(FILEPATH, exist_ok=True)
     img.save(os.path.join(FILEPATH, FILENAME))
 
+    # Save name of image on DB
     add_search_image_log('/static/images/' + FILENAME)

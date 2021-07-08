@@ -3,8 +3,8 @@ from flask_restful import Resource, abort
 from sqlalchemy import any_
 
 from app import db
-from app.models import Item, Brand
-from .serializer import items_schema
+from ..models import Item, Brand
+from ..serializer import items_schema
 
 def find_items_with_keyword(keyword):
     # If keyword is consisted with multiple words
