@@ -9,7 +9,7 @@
 * [Search Engine 01]()
 
 2021.07.08 ~ 웹 UI 개선
-* [Web UI 01 Figma](https://mapadubak.tistory.com/125)
+* [UI 01 Protype with Figma](https://mapadubak.tistory.com/125)
 
 ### Shoogle 베타 준비 과정
 <details>
