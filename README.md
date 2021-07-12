@@ -10,6 +10,7 @@
 
 2021.07.08 ~ 웹 UI 개선
 * [Web UIUX 01]()
+* [Web UI - Figma]()
 
 ### Shoogle 베타 준비 과정
 <details>
