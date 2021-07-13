@@ -1,75 +1,37 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      alert("{{messages[-1]}}")
+    </script>
+  {% endif %}
+{% endwith %}
+
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{url_for('static', filename='index.css') }}">
-  <title>Shoogle It!</title>
+  <title>Shoogle</title>
 </head>
 <body>
-  <div class="header_top">
-    <a href="#login">로그인</a>
-    <a href="#contact">문의하기</a>
-  </div>
-
-  <div class="header_main">
-    <h3 class="logo">Shoogle</h3>
-    <div class="search-container">
-      <form action="/search" method="GET">
-        <input type="text" placeholder="이미지 입력 또는 키워드 검색" name="keyword">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <button class="browse-btn"><i class="fa fa-camera"></i></button>
-    </div>
-  </div>
-
-  <form action = "/image" method = "POST" enctype = "multipart/form-data" style="display: none;">
-    <div id="image-search-bar" class="mx-auto search-bar input-group" style="margin:1rem;">
-        <input id="inputFile" type = "file" name = "file"/>
-        <button id="submit-btn" type="submit"></button>
+  <h1>
+    <span>S</span><span>h</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+  </h1>
+  <form action="/search" method="GET">
+    <div class="mx-auto mt-5 search-bar input-group">
+      <input name="keyword" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <input type = "submit" value="Shoogle It"/>
+      <div class="input-group-append">
+      </div>
     </div>
   </form>
 
-  <script>
-    const fileToRead = document.querySelector('#inputFile');
-    const submitBtn = document.querySelector('#submit-btn');
-    const browseBtn = document.querySelector('.browse-btn');
-
-    browseBtn.addEventListener('click',()=>{
-      console.log("Clicked")
-      fileToRead.click();
-    });
-
-    fileToRead.addEventListener("change", function(event) {
-        submitBtn.click();
-    }, false);
-  </script>
-
-  <div>
-  
-
-  </div>
-
-  <div id="gallery">
-
-  <script type=text/javascript>
-    var items = {{ items | tojson | safe }};
-    var result = '';
-    for(var i = 0; i < items.length; ++i){
-        result += '<div class="thumbnail"><a href="' + items[i].item_url + '" target="_blank">\
-          <img class="image" src="' + items[i].image_url + '" loading="lazy"/></a>\
-          <div class="text">\
-          <span class="brand">' + items[i].brand + '</span><br>\
-          <span class="title">' + items[i].title + '</span></div></div>';
-    }   
-    var gallery = document.getElementById("gallery");
-    gallery.innerHTML = result;
-  </script>
-
-</div>
+  <form action = "/image" method = "POST" enctype = "multipart/form-data">
+    <div id="image-search-bar" class="mx-auto search-bar input-group" style="margin:1rem;">
+        <input type = "file" name = "file" style="width: 370px;"/>
+        <input type = "submit" value="Shoogle Image!"/>
+    </div>
+</form>
 
 </body>
 </html>
-
-
-

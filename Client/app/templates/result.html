@@ -2,9 +2,9 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{url_for('static', filename='index.css') }}">
-  <title>Shoogle It!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Just Shoogle It</title>
 </head>
 <body>
   <div class="header_top">
@@ -24,7 +24,7 @@
   </div>
 
   <form action = "/image" method = "POST" enctype = "multipart/form-data" style="display: none;">
-    <div id="image-search-bar" class="mx-auto search-bar input-group" style="margin:1rem;">
+    <div id="image-search-bar">
         <input id="inputFile" type = "file" name = "file"/>
         <button id="submit-btn" type="submit"></button>
     </div>

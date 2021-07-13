@@ -16,12 +16,15 @@ class FeatureExtractor:
     def extract(self, img):
         # Resize the image
         img = img.resize((224, 224))
+        
         # Convert the image color space
         img = img.convert('RGB')
+
         # Reformat the image
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
         x = preprocess_input(x)
+
         # Extract Features
         feature = self.model.predict(x)[0]
         return feature / np.linalg.norm(feature)
