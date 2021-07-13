@@ -1,8 +1,6 @@
-import sys
 import os
 from dotenv import load_dotenv, find_dotenv
 
-from datetime import timedelta
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
