@@ -1,68 +1,16 @@
-.search-bar {
-    width: 500px;
-}
-
-.rounded-pill {
-    height: 45px
-}
-
-.mt-5{
-    margin-top: 4rem!important;
-}
-
-.mb-3{
-    margin-bottom: 4rem!important;
-}
-
-.column {
-    margin:0 60px;
-}
-
-.thumbnail {
-    float: left;
-    width: 240px;
-    height: 280px;
-    
-}
-
-.thumbnail .image{
-    margin: 20px 20px 0px 20px;
-    width: 200px;
-    height: 200px;
-    border: 1px solid #dddddd;
-}
-
-.thumbnail .text{
-    margin: 10px 25px;
-    line-height: 16px;
-}
-
-.thumbnail .brand{
-    font-size: 12px;
-    
-}
-
-.thumbnail .title{
-    margin-top: 0;
-    font-size: 10px;
-    
-}
-
-#gallery {
-    margin:100px auto;
-    width: 960px;
-    height: auto;
-}
+/* body {
+    background-color: rgb(255, 250, 243);
+} */
 
 .logo {
-    margin-top: 6px;
+    margin: 6px 15px;
 }
 
 .header_top {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 40px;
+    height: 30px;
 
     border-bottom: 1px solid;
     border-color: #ccc;
@@ -73,7 +21,7 @@
 }
 
 .header_top a {
-    padding-top: 10px;
+    padding-top: 7px;
     padding-right: 30px;
     float: right;
     color: black;
@@ -84,7 +32,7 @@
 
 .header_main {
     position: fixed;
-    top: 40px;
+    top: 30px;
     width: 100%;
 
     border-bottom: 1px solid;
@@ -101,20 +49,20 @@
 
 .header_main .search-container {
     float: right;
-    border-bottom: 1px solid #555555;
     align-items: center;
-    margin-right: 16px;
-    margin-bottom: 12px;
+    margin-right: 12px;
+}
+
+.header_main .search-items {
+    margin-top: 10px;
+    border-bottom: 1px solid #555555;
 }
 
 .header_main input[type=text] {
     float: left;
-    padding: 6px;
-    margin-top: 20px;
+    padding-top: 6px;
     font-size: 14px;
     border: none;
-    
-    width: 500px;
 }
 
 .header_main form{
@@ -123,7 +71,7 @@
 
 button {
     padding: 6px 10px;
-    margin-top: 20px;
+    margin-top: 0;
     background: none;
     font-size: 17px;
     border: none;
@@ -134,4 +82,17 @@ button .fa-camera{
     padding-right: 0;
     float: right;
     padding-top: 3px;
+}
+
+#gallery {
+    margin: 95px auto;
+}
+
+.thumbnail .text{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.fa{
+    color: #444
 }

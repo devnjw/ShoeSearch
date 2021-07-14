@@ -3,6 +3,9 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="{{url_for('static', filename='index.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='pc.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='tablet.css') }}" media="(min-width:630px) and (max-width:980px)">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobile.css') }}" media="(min-width:0px) and (max-width:630px)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Just Shoogle It</title>
 </head>
@@ -13,13 +16,15 @@
   </div>
 
   <div class="header_main">
-    <h3 class="logo">Shoogle</h3>
+    <a href="/"><h3 class="logo" style="color:black">Shoogle</h3></a>
     <div class="search-container">
-      <form action="/search" method="GET">
-        <input type="text" placeholder="이미지 입력 또는 키워드 검색" name="keyword">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
-      <button class="browse-btn"><i class="fa fa-camera"></i></button>
+      <div class="search-items">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="이미지 입력 또는 키워드 검색" name="keyword">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <button class="browse-btn"><i class="fa fa-camera"></i></button>
+      </div>
     </div>
   </div>
 
@@ -45,6 +50,8 @@
     }, false);
   </script>
 
+  
+
   <div>
   
 
@@ -64,6 +71,17 @@
     }   
     var gallery = document.getElementById("gallery");
     gallery.innerHTML = result;
+
+    var thumbnails = document.getElementsByClassName("thumbnail");
+    var images = document.getElementsByClassName("image");
+
+    console.log(thumbnails.length)
+
+    for(var i = 0; i < thumbnails.length; ++i){
+      thumbnails[i].style.height = thumbnails[i].clientWidth*1.25 +"px";
+      images[i].style.height = images[i].clientWidth+"px";
+    }
+    
   </script>
 
 </div>
