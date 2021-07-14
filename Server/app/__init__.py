@@ -11,6 +11,8 @@ fe = FeatureExtractor()
 db = SQLAlchemy()
 migrate = Migrate(compare_type=True)
 
+max_item_num = 96
+
 def create_app():
     app = Flask(__name__)
 
