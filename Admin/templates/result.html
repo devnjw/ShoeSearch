@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNXHNV4KCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MNXHNV4KCL');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K99P37Q');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{url_for('static', filename='index.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='pc.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='tablet.css') }}" media="(min-width:630px) and (max-width:980px)">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobile.css') }}" media="(min-width:0px) and (max-width:630px)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Just Shoogle It</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNXHNV4KCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-202391343-1');
+  </script> -->
+</head>
+<body>
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div class="header_top">
+    <a href="#login">로그인</a>
+    <a href="mailto:devnjw@gmail.com">문의하기</a>
+  </div>
+
+  <div class="header_main">
+    <a href="/"><h3 class="logo" style="color:black">Shoogle</h3></a>
+    <div class="search-container">
+      <div class="search-items">
+        <form action="/search" method="GET">
+          <input type="text" placeholder="이미지 입력 또는 키워드 검색" name="keyword">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <button class="browse-btn"><i class="fa fa-camera"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <form action = "/image" method = "POST" enctype = "multipart/form-data" style="display: none;">
+    <div id="image-search-bar">
+        <input id="inputFile" type = "file" name = "file"/>
+        <button id="submit-btn" type="submit"></button>
+    </div>
+  </form>
+
+  <script>
+    const fileToRead = document.querySelector('#inputFile');
+    const submitBtn = document.querySelector('#submit-btn');
+    const browseBtn = document.querySelector('.browse-btn');
+    var spinner = document.querySelector(".spinner-border");
+    var gallery = document.querySelector("#gallery");
+
+    browseBtn.addEventListener('click',()=>{
+      fileToRead.click();
+    });
+
+    fileToRead.addEventListener("change", function(event) {
+        spinner.style.display = "block";
+        gallery.style.display = "none";
+        submitBtn.click();
+    }, false);
+  </script>
+
+
+  <div id="gallery"></div>
+
+  <script type=text/javascript>
+    var items = {{ items | tojson | safe }};
+    var result = '';
+    for(var i = 0; i < items.length; ++i){
+        result += '<div class="thumbnail"><a href="' + items[i].item_url + '" target="_blank">\
+          <img class="image" src="http://3.36.4.108:5050' + items[i].url + '" loading="lazy"/></a>\
+          <div class="text">\
+          <span class="brand">' + items[i].date + '</span></div></div>';
+    }   
+    var gallery = document.getElementById("gallery");
+    gallery.innerHTML = result;
+
+    var thumbnails = document.getElementsByClassName("thumbnail");
+    var images = document.getElementsByClassName("image");
+
+    for(var i = 0; i < thumbnails.length; ++i){
+      thumbnails[i].style.height = thumbnails[i].clientWidth*1.25 +"px";
+      images[i].style.height = images[i].clientWidth+"px";
+    }
+
+    var spinner = document.querySelector(".spinner-border");
+    window.onload = function(){
+      spinner.style.display = "none";
+      console.log("ready")
+    }
+
+  </script>
+
+</body>
+</html>
+
+
+

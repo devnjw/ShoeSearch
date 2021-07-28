@@ -39,4 +39,7 @@ def create_app():
     from .controller.image_controller import ImageSearch
     api.add_resource(ImageSearch, '/search/image')
 
+    from .controller.admin_controller import AdminImage
+    api.add_resource(AdminImage, '/admin/image')
+
     return app
