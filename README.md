@@ -4,8 +4,6 @@
 
 서비스 링크: www.shoogle.kr<br>
 
-
-
 ### Shoogle 개발 일지
 <details>
 <summary>
@@ -13,9 +11,10 @@
 </summary>
 <div markdown="1">       
   
-2021.07.18 ~ 07.31 휴가, 크롤링 공부<br>
+2021.07.18 ~ 07.31 크롤링 공부
+* []()
+<br>
 
-Shoogle V1.0 첫 배포 준비 과정
 2021.07.07 검색 알고리즘 개선
 * [Search Engine 01]()
 
