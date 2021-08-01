@@ -4,7 +4,6 @@
 
 서비스 링크: www.shoogle.kr<br>
 
-### Shoogle 개발 일지
 <details>
 <summary>
   개발 일지
