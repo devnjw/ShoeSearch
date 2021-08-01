@@ -9,10 +9,6 @@
   개발 일지
 </summary>
 <div markdown="1">       
-  
-2021.07.18 ~ 07.31 크롤링 공부
-* []()
-<br>
 
 2021.07.07 검색 알고리즘 개선
 * [Search Engine 01]()
@@ -40,6 +36,7 @@
 
 공부
 * [Study 01 Search Engine](https://mapadubak.tistory.com/116)
+* [Crawler]()
 
 </div>
 </details>
