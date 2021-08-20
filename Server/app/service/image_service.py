@@ -50,6 +50,9 @@ def findSimilarImages(img):
 
 def save_image(img):
     img = Image.open(img)
+    
+    # JPG does not support transparency
+    img = img.convert('RGB')
 
     FILENAME = str(uuid.uuid4()) + ".jpg"
     FILEPATH = os.getcwd() + '/app/static/images/'
