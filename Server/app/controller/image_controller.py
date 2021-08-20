@@ -12,7 +12,10 @@ class ImageSearch(Resource):
 
         items = find_items_with_image(file)
 
-        # Log image search
-        save_image(file)
+        try:
+            # Log image search
+            save_image(file)
+        except Exception as e:
+            print(e)
 
         return make_response(jsonify({'data':items}))
