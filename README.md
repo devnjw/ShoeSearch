@@ -4,21 +4,17 @@
 
 서비스 링크: www.shoogle.kr<br>
 
-#### 2021.07.18 ~ 07.31 휴가, 크롤링 공부
+<details>
+<summary>
+  개발 일지
+</summary>
+<div markdown="1">       
 
-### Shoogle V1.0 첫 배포 준비 과정
 2021.07.07 검색 알고리즘 개선
 * [Search Engine 01]()
 
 2021.07.08 ~ 웹 UI 개선
 * [UI 01 Protype with Figma](https://mapadubak.tistory.com/125)
-
-### Shoogle 베타 준비 과정
-<details>
-<summary>
-  지난 과정 펼쳐보기
-</summary>
-<div markdown="1">       
 
 2021.06.29 ~ 07.03
 * [Release 01 AI Model Distribution](https://mapadubak.tistory.com/123)
@@ -40,6 +36,7 @@
 
 공부
 * [Study 01 Search Engine](https://mapadubak.tistory.com/116)
+* [Crawler]()
 
 </div>
 </details>
