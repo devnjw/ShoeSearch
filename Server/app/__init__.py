@@ -29,9 +29,10 @@ def create_app():
     from .controller.home_controller import HomeKPI
     api.add_resource(HomeKPI, '/home')
 
-    from .crawler import MusinsaItemCrawler, MusinsaBrandCrawler
+    from .crawler import MusinsaItemCrawler, MusinsaBrandCrawler, MusinsaItemWithCategoryCrawler
     api.add_resource(MusinsaItemCrawler, '/crawl/item/musinsa')
     api.add_resource(MusinsaBrandCrawler, '/crawl/brand/musinsa')
+    api.add_resource(MusinsaItemWithCategoryCrawler, '/crawl/category/musinsa')
 
     from .controller.keyword_controller import KeywordSearch
     api.add_resource(KeywordSearch, '/search')
