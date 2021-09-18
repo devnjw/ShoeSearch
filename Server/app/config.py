@@ -8,12 +8,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 load_dotenv(find_dotenv())
 
-# def is_linux_system():
-#     return sys.platform == "linux" or sys.platform == "linux2"
-
-# if not is_linux_system():
-#     os.environ['DB_SERVICE'] = "localhost"
-
 class BaseConfig(object):
     DEBUG = True
     use_reloader=True
