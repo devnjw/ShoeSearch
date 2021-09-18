@@ -34,7 +34,7 @@ def image_search():
 
    if not file:
       flash("이미지 검색을 사용하려면, 이미지를 넣어주세요.\\nPlease put the image in for image search.")
-      return render_template('index.html')
+      return render_template('index.html')   
 
    else:
       url = "http://127.0.0.1:5050/search/image"
