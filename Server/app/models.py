@@ -9,12 +9,14 @@ class Item(db.Model):
     shop = db.Column(db.String(45))
     price = db.Column(db.String(45))
     brand = db.Column(db.String(45))
+    clicked = db.Column(db.Integer)
 
 class Brand(db.Model):
     __tablename__ = "brand"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     eng_name = db.Column(db.String(45))
     subs = db.Column(db.String(255))
+    clicked = db.Column(db.Integer)
 
 class KPI(db.Model):
     __tablename__ = "KPI"
