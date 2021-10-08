@@ -15,7 +15,7 @@ def home():
    url = 'http://127.0.0.1:5050/search?keyword=' + keyword
    res = requests.get(url).json()
 
-   return render_template('index.html', items=res['data'])
+   return render_template('result.html', items=res['data'])
 
 @app.route('/search')
 def string_search():
