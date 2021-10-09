@@ -4,14 +4,23 @@
 
 서비스 링크: www.shoogle.kr<br>
 
+### Contributors
+[devnjw](https://github.com/devnjw): Software Engineer, ML Engineer<br>
+[dhleekr](https://github.com/dhleekr): ML Engineer
+
+
+## System Flow
+<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png"></p>
+<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/136223330-742fcf23-62b9-4fe0-b11a-3ca37a549985.png"></p>
+
+
 <details>
 <summary>
   개발 일지
 </summary>
 <div markdown="1">       
 
-2021.07.07 검색 알고리즘 개선
-* [Search Engine 01]()
+2021.10. V2 개발 시작
 
 2021.07.08 ~ 웹 UI 개선
 * [UI 01 Protype with Figma](https://mapadubak.tistory.com/125)
@@ -40,15 +49,3 @@
 
 </div>
 </details>
-
-
-### Contributors
-[devnjw](https://github.com/devnjw): Software Engineer, ML Engineer<br>
-[dhleekr](https://github.com/dhleekr): ML Engineer
-
-
-## System Flow
-<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png"></p>
-<p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/136223330-742fcf23-62b9-4fe0-b11a-3ca37a549985.png"></p>
-
-
