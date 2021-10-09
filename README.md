@@ -20,7 +20,7 @@
 </summary>
 <div markdown="1">       
 
-2021.10. V2 개발 시작
+2021.10. Shoogle version 2.0 개발 시작
 
 2021.07.08 ~ 웹 UI 개선
 * [UI 01 Protype with Figma](https://mapadubak.tistory.com/125)
