@@ -1,8 +1,8 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask import request
-import json, os
+from PIL import Image
 
-from .machine import FeatureExtractor
+from machine import FeatureExtractor
 fe = FeatureExtractor()
 
 app = Flask(__name__) 
@@ -11,14 +11,12 @@ app = Flask(__name__)
 def image_save():
     file = request.files['file']
 
-    FILENAME = "test.jpg"
-    FILEPATH = os.getcwd() + '/static/images/'
+    img = Image.open(file)
 
-    os.makedirs(FILEPATH, exist_ok=True)
-    file.save(os.path.join(FILEPATH, FILENAME))
+    # Extract features of Input Image
+    feature = fe.extract(img)
 
-    result = {'data': "Image Uploaded Successfully"}
-    return json.dumps(result)
+    return feature
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5050)s
+    app.run(debug=True, port=5090)
