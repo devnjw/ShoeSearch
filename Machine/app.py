@@ -7,6 +7,7 @@ fe = FeatureExtractor()
 
 app = Flask(__name__) 
 
+# Todo: Test API transaction cost
 @app.route('/image/feature', methods = ['POST'])
 def get_feature():
     file = request.files['file']
