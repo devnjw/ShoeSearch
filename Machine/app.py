@@ -7,8 +7,8 @@ fe = FeatureExtractor()
 
 app = Flask(__name__) 
 
-@app.route('/image/similarity', methods = ['POST'])
-def image_save():
+@app.route('/image/feature', methods = ['POST'])
+def get_feature():
     file = request.files['file']
 
     img = Image.open(file)
