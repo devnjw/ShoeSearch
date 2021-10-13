@@ -3,6 +3,8 @@ import numpy as np
 import uuid
 import os
 
+import requests
+
 from sqlalchemy.sql.expression import case
 
 from app import fe, max_item_num
@@ -32,13 +34,18 @@ def find_items_with_image(file):
 # input: image
 # output: similar image ids
 def findSimilarImages(img):
-    img = Image.open(img)
+    # img = Image.open(img)
+
+    url = "http://127.0.0.1:5090/image/feature"
+    file = {'file': img}
+    res = requests.post(url, files=file).json()
+    feature = res['data']
     
     # Pre-extracted features of Database Images
     features = fe.features
 
     # Extract features of Input Image
-    feature = fe.extract(img)
+    # feature = fe.extract(img)
 
     # Calculate the similarity (distance) between images
     dists = np.linalg.norm(features - feature, axis=1)

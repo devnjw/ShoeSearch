@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request, jsonify, make_response
 from PIL import Image
 
 from machine import FeatureExtractor
@@ -16,8 +15,9 @@ def get_feature():
 
     # Extract features of Input Image
     feature = fe.extract(img)
-
-    return feature
+    feature = feature.tolist()
+    
+    return make_response(jsonify({'data':feature}))
 
 if __name__ == '__main__':
     app.run(debug=True, port=5090)
