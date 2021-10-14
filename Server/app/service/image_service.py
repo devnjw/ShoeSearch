@@ -39,19 +39,21 @@ def findSimilarImages(img):
     url = "http://127.0.0.1:5090/image/feature"
     file = {'file': img}
     res = requests.post(url, files=file).json()
-    feature = res['data']
+    # feature = res['data']
+
+    ids = res['data']
     
-    # Pre-extracted features of Database Images
-    features = fe.features
+    # # Pre-extracted features of Database Images
+    # features = fe.features
 
-    # Extract features of Input Image
-    # feature = fe.extract(img)
+    # # Extract features of Input Image
+    # # feature = fe.extract(img)
 
-    # Calculate the similarity (distance) between images
-    dists = np.linalg.norm(features - feature, axis=1)
+    # # Calculate the similarity (distance) between images
+    # dists = np.linalg.norm(features - feature, axis=1)
 
-    # Extract 100 images that have lowest distance
-    ids = np.argsort(dists)[:max_item_num] + 1 # Type: numpy.int64
+    # # Extract 100 images that have lowest distance
+    # ids = np.argsort(dists)[:max_item_num] + 1 # Type: numpy.int64
 
     return ids
 
