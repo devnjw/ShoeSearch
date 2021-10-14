@@ -11,7 +11,7 @@ class FeatureExtractor:
         
         # Customize the model to return features from fully-connected layer
         self.model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc1').output)
-        self.features = np.array(np.load(os.getcwd() + "/app/mFeatures.npy"))
+        self.features = np.array(np.load(os.getcwd() + "/mFeatures.npy"))
 
     def extract(self, img):
         # Resize the image

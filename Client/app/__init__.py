@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 import json
 import requests
 from .config import BaseConfig
+from flask import g
+import time
 
 app = Flask(__name__)
 app.config.from_object(BaseConfig)
@@ -42,6 +44,16 @@ def image_search():
       res = requests.post(url, files=files).json()
 
       return render_template('result.html', items=res['data'])
+
+@app.before_request
+def before_request():
+    g.start = time.time()
+
+@app.after_request
+def after_request(response):
+    diff = time.time() - g.start
+    print(diff)
+    return response
 
 if __name__ == "__main__":
    app.run(debug=True, host='0.0.0.0', port=5000)
