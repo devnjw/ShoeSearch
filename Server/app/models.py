@@ -10,6 +10,7 @@ class Item(db.Model):
     price = db.Column(db.String(45))
     brand = db.Column(db.String(45))
     clicked = db.Column(db.Integer)
+    feature = db.Column(db.Text)
 
 class Brand(db.Model):
     __tablename__ = "brand"

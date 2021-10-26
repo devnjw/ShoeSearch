@@ -57,6 +57,17 @@ def findSimilarImages(img):
 
     return ids
 
+def save_all_image_feature():
+    items = Item.query.all()
+    for item in items:
+        save_image_feature(item.id)
+
+def save_image_feature(id):
+    item = Item.query.filter_by(id=id).first()
+    img = Image.open(requests.get(item.image_url, stream=True).raw)
+
+    item.feature = fe.extract(img).tostring()
+
 def save_image(img):
     img = Image.open(img)
     

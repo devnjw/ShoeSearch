@@ -5,7 +5,7 @@ from PIL import Image
 from machine import FeatureExtractor
 fe = FeatureExtractor()
 
-app = Flask(__name__) 
+app = Flask(__name__)
 
 # Todo: Test API transaction cost
 @app.route('/image/feature', methods = ['POST'])
