@@ -14,17 +14,19 @@ class FeatureExtractor:
         # self.features = np.array(np.load(os.getcwd() + "/app/mFeatures.npy"))
 
     def extract(self, img):
-        # Resize the image
         img = img.resize((224, 224))
-        
-        # Convert the image color space
         img = img.convert('RGB')
 
-        # Reformat the image
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
         x = preprocess_input(x)
 
         # Extract Features
         feature = self.model.predict(x)[0]
-        return feature / np.linalg.norm(feature)
+        
+        # Retype Features
+        feature /= np.linalg.norm(feature)
+        feature *= 10000
+        feature = feature.astype(int)
+
+        return feature

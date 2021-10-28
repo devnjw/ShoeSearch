@@ -59,8 +59,6 @@ def findSimilarImages(img):
     items = Item.query.with_entities(Item.id, Item.feature).all()
 
     feature = fe.extract(img)
-    feature *= 10000
-    feature = feature.astype(int)
 
     dists = []
     for item in items:
@@ -96,8 +94,6 @@ def save_image_feature(id):
 
         
         features = fe.extract(img)
-        features *= 10000
-        features = features.astype(int)
 
         str_feature = ""
         for feature in features:
