@@ -6,8 +6,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['get'])
 def image_search():
-    url = "http://127.0.0.1:5050/admin/image"
-    res = requests.get(url).json()
+    res = {'data':1}
+    try:
+        url = "http://127.0.0.1:5050/admin/image"
+        res = requests.get(url).json()
+    except Exception as e:
+        print(e)
 
     return render_template('result.html', items=res['data'])
 
