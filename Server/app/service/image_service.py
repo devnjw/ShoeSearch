@@ -117,10 +117,10 @@ def save_image(img):
     img = img.convert('RGB')
 
     FILENAME = str(uuid.uuid4()) + ".jpg"
-    FILEPATH = os.getcwd() + '/app/static/images/'
+    FILEPATH = os.getcwd() + '/../Admin/static/image_logs/'
 
     os.makedirs(FILEPATH, exist_ok=True)
     img.save(os.path.join(FILEPATH, FILENAME))
 
     # Save name of image on DB
-    add_search_image_log('/static/images/' + FILENAME)
+    add_search_image_log('/static/image_logs/' + FILENAME)
