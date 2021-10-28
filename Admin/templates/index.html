@@ -1,37 +1,61 @@
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <script>
-      alert("{{messages[-1]}}")
-    </script>
-  {% endif %}
-{% endwith %}
-
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="{{url_for('static', filename='index.css') }}">
-  <title>Shoogle</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='pc.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='tablet.css') }}" media="(min-width:630px) and (max-width:980px)">
+  <link rel="stylesheet" href="{{url_for('static', filename='mobile.css') }}" media="(min-width:0px) and (max-width:630px)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Just Shoogle It</title>
+
 </head>
 <body>
-  <h1>
-    <span>S</span><span>h</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
-  </h1>
-  <form action="/search" method="GET">
-    <div class="mx-auto mt-5 search-bar input-group">
-      <input name="keyword" type="text" class="form-control rounded-pill" placeholder="이미지 입력 또는 키워드 검색" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <input type = "submit" value="Shoogle It"/>
-      <div class="input-group-append">
-      </div>
-    </div>
-  </form>
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 
-  <form action = "/image" method = "POST" enctype = "multipart/form-data">
-    <div id="image-search-bar" class="mx-auto search-bar input-group" style="margin:1rem;">
-        <input type = "file" name = "file" style="width: 370px;"/>
-        <input type = "submit" value="Shoogle Image!"/>
-    </div>
-</form>
+  <div class="header_top">
+    <a href="#login">관리자 로그인</a>
+    <a href="mailto:devnjw@gmail.com">문의하기</a>
+  </div>
+
+  <div class="header_main">
+    <a href="/"><h3 class="logo" style="color:black">Shoogle Admin Page</h3></a>
+  </div>
+
+  <div id="gallery"></div>
+
+  <script type=text/javascript>
+    var items = {{ items | tojson | safe }};
+    var result = '';
+    for(var i = 0; i < items.length; ++i){
+        result += '<div class="thumbnail"><a href="' + items[i].item_url + '" target="_blank">\
+          <img class="image" src="http://3.36.4.108:1902' + items[i].url + '" loading="lazy"/></a>\
+          <div class="text">\
+          <span class="brand">' + items[i].date + '</span></div></div>';
+    }   
+    var gallery = document.getElementById("gallery");
+    gallery.innerHTML = result;
+
+    var thumbnails = document.getElementsByClassName("thumbnail");
+    var images = document.getElementsByClassName("image");
+
+    for(var i = 0; i < thumbnails.length; ++i){
+      thumbnails[i].style.height = thumbnails[i].clientWidth*1.25 +"px";
+      images[i].style.height = images[i].clientWidth+"px";
+    }
+
+    var spinner = document.querySelector(".spinner-border");
+    window.onload = function(){
+      spinner.style.display = "none";
+      console.log("ready")
+    }
+
+  </script>
 
 </body>
 </html>
+
+
+
