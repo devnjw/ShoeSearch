@@ -1,0 +1,23 @@
+## Environments ##
+.env
+
+## macOS ##
+.DS_Store
+
+## python ##
+*.pyc
+__pycache__/
+
+## AI models ##
+*.pt
+*.weights
+*.npy
+
+## db migration ##
+migrations/
+
+## Test image files ##
+*.jpg
+*.jpeg
+*.png
+*.zip
