@@ -12,7 +12,7 @@ app.config.from_object(BaseConfig)
 def home():
    keyword = request.args.get('keyword')
    if not keyword:
-      keyword = ""
+      keyword = "converse"
 
    url = 'http://127.0.0.1:5050/search?keyword=' + keyword
    res = requests.get(url).json()
