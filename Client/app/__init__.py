@@ -39,7 +39,7 @@ def image_search():
       return render_template('index.html')   
 
    else:
-      url = "http://127.0.0.1:5050/search/image"
+      url = "http://127.0.0.1:5050/search/graph/image"
       files = {'file': file}
       res = requests.post(url, files=files).json()
 
