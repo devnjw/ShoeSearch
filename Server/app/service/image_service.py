@@ -20,7 +20,7 @@ def find_items_with_graph_search(file, depth=10, num=100, pick=10):
 
     feature = fe.extract(img)
     
-    similar_image_id_list = np.array([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    similar_image_id_list = np.array([100, 200, 300, 400, 500, 600, 700, 800, 900, 2026])
 
     new_list = []
     
