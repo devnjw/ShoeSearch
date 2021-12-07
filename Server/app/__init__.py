@@ -39,8 +39,10 @@ def create_app():
     from .controller.keyword_controller import KeywordSearch
     api.add_resource(KeywordSearch, '/search')
 
-    from .controller.image_controller import ImageSearch
+    from .controller.image_controller import ImageSearch, SimilarImages, GraphImageSearch
     api.add_resource(ImageSearch, '/search/image')
+    api.add_resource(SimilarImages, '/similar/images')
+    api.add_resource(GraphImageSearch, '/search/graph/image')
 
     from .controller.admin_controller import AdminImage
     api.add_resource(AdminImage, '/admin/image')
