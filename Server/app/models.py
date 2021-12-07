@@ -12,6 +12,17 @@ class Item(db.Model):
     clicked = db.Column(db.Integer)
     feature = db.Column(db.Text)
 
+    similar_items = db.relationship("SimilarItems", back_populates="item", uselist=False)
+
+
+class SimilarItems(db.Model):
+    __tablename__ = "similar_items"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
+    sim_items = db.Column(db.Text)
+    
+    item = db.relationship("Item", back_populates="similar_items")
+
 class Brand(db.Model):
     __tablename__ = "brand"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

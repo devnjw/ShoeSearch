@@ -10,13 +10,149 @@ from flask_restful import abort
 
 from app import fe, max_item_num, db
 
-from app.models import Item
+from app.models import Item, SimilarItems
 from ..serializer import items_schema
 
 from .kpi_service import add_search_image_log
 
+def find_items_with_graph_search(file, depth=10, num=100, pick=10):
+    img = Image.open(file)
+
+    feature = fe.extract(img)
+    
+    similar_image_id_list = np.array([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+
+    new_list = []
+    
+    for i in range(depth):
+        # Make order list to keep query result sorted
+        ordering = case(
+            {id: index for index, id in enumerate(similar_image_id_list)},
+            value=SimilarItems.item_id
+        )
+        
+        sim_items = SimilarItems.query\
+            .filter(SimilarItems.item_id.in_(similar_image_id_list))\
+            .order_by(ordering)\
+            .all()
+
+        new_list = []
+
+        for item in sim_items:
+            sim_ids = np.fromstring(item.sim_items, dtype=int, sep=" ")
+            for id in sim_ids:
+                new_list.append(id)
+
+        new_list = np.array(new_list)
+        
+        items = Item.query\
+            .with_entities(Item.id, Item.feature)\
+            .filter(Item.id.in_(new_list))\
+            .all()
+        
+        dists = []
+        for item in items:
+            try:
+                if item.feature:
+                    tmp = []
+                    tmp.append(item.id)
+                    f = np.fromstring(item.feature, dtype=int, sep=" ")
+                    dist = np.linalg.norm(feature - f)
+                    tmp.append(dist)
+                    dists.append(tmp)
+            except Exception as e:
+                pass
+
+        dists.sort(key=lambda x:x[1])
+        
+        similar_image_id_list = np.array(dists)[:pick,0]
+    
+    # Make order list to keep query result sorted
+    ordering = case(
+        {id: index for index, id in enumerate(new_list)},
+        value=Item.id
+    )
+    
+    output = Item.query\
+        .filter(Item.id.in_(new_list))\
+        .order_by(ordering)\
+        .limit(max_item_num).all()
+    output = items_schema.dump(output)
+
+    print(len(output))
+
+    return output
+
+def save_all_similar_items():
+    print("Started to get items")
+    items = Item.query.with_entities(Item.id, Item.feature).all()
+    
+    #extract all features from string to int
+    print("For loop started")
+    for item in items:
+        if item.id < 2902:
+            continue
+        try:
+            print(item.id, "/", len(items))
+            save_similar_items(items, item)
+        except Exception as e:
+            pass
+        # dists = []
+        # for i in items:
+        #     try:
+        #         if item.id == i.id:
+        #             continue
+
+        #         feature = np.fromstring(item.feature, dtype=int, sep=" ")
+        #         f = np.fromstring(i.feature, dtype=int, sep=" ")
+
+        #         tmp = []
+        #         tmp.append(i.id)
+        #         dist = np.linalg.norm(feature - f)
+        #         tmp.append(dist)
+        #         dists.append(tmp)
+                
+        #     except Exception as e:
+        #         pass
+
+        # dists.sort(key=lambda x:x[1])
+
+        # # print("dists:", dists)
+        
+        # ids = np.array(dists)[:10,0]
+
+        # print(ids)
+
+
+
+def save_similar_items(items, item):
+    
+    feature = np.fromstring(item.feature, dtype=int, sep=" ")
+
+    similar_image_id_list = findSimilarImages(limit=10, items=items, feature=feature)
+
+    str_sim_item_ids = ""
+    for id in similar_image_id_list:
+        str_sim_item_ids += str(int(id)) + " "
+
+    try:
+        
+        new_item = SimilarItems(
+            item_id = item.id,
+            sim_items = str_sim_item_ids
+        )
+
+        db.session.add(new_item)
+        db.session.commit()
+
+    except Exception as e:
+        print(e)
+
+
 def find_items_with_image(file):
-    similar_image_id_list = findSimilarImages(file)
+    img = Image.open(file)
+
+    similar_image_id_list = findSimilarImages(img)
 
     # Make order list to keep query result sorted
     ordering = case(
@@ -34,34 +170,17 @@ def find_items_with_image(file):
 
 # input: image
 # output: similar image ids
-def findSimilarImages(img):
-    img = Image.open(img)
+def findSimilarImages(img=None, limit=100, items=[], feature=[], id=None):
+    if not items:
+        items = Item.query.with_entities(Item.id, Item.feature).all()
 
-    # url = "http://127.0.0.1:5090/image/feature"
-    # file = {'file': img}
-    # res = requests.post(url, files=file).json()
-    # # feature = res['data']
-
-    # ids = res['data']
-    
-    # # Pre-extracted features of Database Images
-    # features = fe.features
-
-    # # Extract features of Input Image
-    # # feature = fe.extract(img)
-
-    # # Calculate the similarity (distance) between images
-    # dists = np.linalg.norm(features - feature, axis=1)
-
-    # # Extract 100 images that have lowest distance
-    # ids = np.argsort(dists)[:max_item_num] + 1 # Type: numpy.int64
-
-    items = Item.query.with_entities(Item.id, Item.feature).all()
-
-    feature = fe.extract(img)
+    if type(feature) is not np.ndarray:
+        feature = fe.extract(img)
 
     dists = []
     for item in items:
+        if id is not None and id == item.id:
+            continue
         try:
             if item.feature:
                 tmp = []
@@ -75,16 +194,15 @@ def findSimilarImages(img):
 
     dists.sort(key=lambda x:x[1])
     
-    ids = np.array(dists)[:max_item_num,0]
+    ids = np.array(dists)[:limit,0]
+
+    print(type(ids), ids)
 
     return ids
 
 def save_all_image_feature():
     items = Item.query.order_by(Item.id.desc()).all()
-    cnt = 1
     for item in items:
-        print(cnt, "/", len(items))
-        cnt += 1
         save_image_feature(item.id)
 
 def save_image_feature(id):
