@@ -2,7 +2,7 @@
 사용자가 신발 이미지를 입력하면 유사한 신발과 쇼핑몰을 찾아주는 신발 이미지 검색 엔진입니다<br>
 네이버 쇼핑 렌즈(이미지 검색)로 신발을 검색하다가, **"신발 검색에만 집중한다면 내가 네이버보다 더 잘할 수 있지 않을까?"** 라는 생각으로 시작한 프로젝트입니다.<br>
 
-서비스 링크: www.shoogle.kr<br>
+서비스 링크: www.shoogle.kr (I stopped it now due to server cost issue.)<br>
 
 ### Contributors
 [devnjw](https://github.com/devnjw): Software Engineer, ML Engineer<br>
