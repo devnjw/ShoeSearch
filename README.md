@@ -13,6 +13,12 @@
 <p align="center"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/124337664-bcb2f700-dbde-11eb-8269-184a6276827e.png"></p>
 <p align="center" width="400px"><img alt="SystemModel" src="https://user-images.githubusercontent.com/48133047/136223330-742fcf23-62b9-4fe0-b11a-3ca37a549985.png"></p>
 
+## UI
+<홈 화면>
+<img width="1155" alt="image" src="https://user-images.githubusercontent.com/48133047/160287538-14467a7a-b8ed-4206-b050-8612e01ef30d.png">
+<검색 결과>
+<img width="1418" alt="image" src="https://user-images.githubusercontent.com/48133047/160287596-550ce501-cdfd-4496-9b56-dea3c2012814.png">
+
 
 <details>
 <summary>
